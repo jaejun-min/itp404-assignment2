@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ITP 404 Assignment1</title>
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+	</head>
+
+	<template id="reddit-template">
+		{{#each reddits.data.children}}
+		    <div class="repo">
+		    <P><b>Title</b>: <a href ="{{data.url}}">{{data.title}}</a></p>
+		    <p><b>Score</b>: {{data.score}}</p>
+		    <p><b>Subreddit_subscribers</b>: {{formatted-num data.subreddit_subscribers}}</p>
+		    <p><b>Num_comments</b> :
+		    	{{#if data.num_comments}}
+		    	{{formatted-num data.num_comments}}
+		    	{{else}}
+		    		No comments
+		    	{{/if}}
+		    <p>
+		    <hr>
+		    </div>
+  		{{/each}}
+	</template>
+
+	<body>
+	<div>
+		<form id ="search">
+			<input type = "text" id="searchText" >
+			<input type = "submit">
+			<hr>
+		</form> 
+	</div>
+	<div id ="results"></div>
+
+	<script src=https://code.jquery.com/jquery-3.3.1.min.js ></script>
+	<script src="moment.js"></script>
+	<script src="handlebars-v4.0.11.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>
